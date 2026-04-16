@@ -1,0 +1,44 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #0a0a0f;
+  --paper: #f5f0e8;
+  --cream: #faf7f2;
+  --gold: #c9a84c;
+  --gold-light: #e8c96d;
+  --gold-pale: #f5e9c5;
+  --crimson: #8b1a1a;
+  --sage: #2d5016;
+  --sage-light: #4a7c28;
+  --slate: #2c3e50;
+  --steel: #6b7d8f;
+  --safe: #1a6b3c;
+  --safe-bg: #e8f5ee;
+  --risky: #8b6000;
+  --risky-bg: #fff8e0;
+  --illegal: #8b1a1a;
+  --illegal-bg: #fde8e8;
+  --border: rgba(10,10,15,0.12);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.10);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.14);
+}
+
+body {
+  font-family: 'Crimson Pro', Georgia, serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 3px; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+@keyframes slideIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+.animate-in { animation: slideIn 0.3s ease forwards; }
+.fade-in    { animation: fadeIn 0.3s ease forwards; }
