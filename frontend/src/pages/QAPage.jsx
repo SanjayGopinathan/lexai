@@ -65,9 +65,10 @@ export default function QAPage() {
             <label style={labelStyle}>Language</label>
             <select value={language} onChange={e => setLanguage(e.target.value)} style={{ ...inputStyle, cursor:'pointer' }}>
               <option value="auto">Auto-detect</option>
+              <option value="Tamil">Tamil</option>
               <option value="English">English</option>
               <option value="Hindi">Hindi</option>
-              <option value="Tamil">Tamil</option>
+              
             </select>
           </div>
           <Button onClick={handleAsk} loading={loading} disabled={!question.trim()}>
@@ -132,7 +133,58 @@ export default function QAPage() {
               </div>
             ))}
           </Section>
-
+{/* Where to Approach */}
+{result.whereToApproach?.length > 0 && (
+  <Section label="🏛️ Where to Approach" bg="#f5f5f5">
+    {result.whereToApproach.map((place, i) => (
+      <div key={i} style={{ display:'flex', gap:10, marginBottom:8, alignItems:'flex-start' }}>
+        <span style={{
+          background:'#333',
+          color:'#fff',
+          borderRadius:'50%',
+          width:22,
+          height:22,
+          display:'flex',
+          alignItems:'center',
+          justifyContent:'center',
+          fontSize:11,
+          fontWeight:700,
+          flexShrink:0,
+          marginTop:2
+        }}>
+          {i+1}
+        </span>
+        <span style={{ fontSize:15 }}>{place}</span>
+      </div>
+    ))}
+  </Section>
+)}
+{/* Required Documents */}
+{result.requiredDocuments?.length > 0 && (
+  <Section label="📂 Required Documents" bg="#fff7e6">
+    {result.requiredDocuments.map((doc, i) => (
+      <div key={i} style={{ display:'flex', gap:10, marginBottom:8, alignItems:'flex-start' }}>
+        <span style={{
+          background:'#b26a00',
+          color:'#fff',
+          borderRadius:'50%',
+          width:22,
+          height:22,
+          display:'flex',
+          alignItems:'center',
+          justifyContent:'center',
+          fontSize:11,
+          fontWeight:700,
+          flexShrink:0,
+          marginTop:2
+        }}>
+          {i+1}
+        </span>
+        <span style={{ fontSize:15 }}>{doc}</span>
+      </div>
+    ))}
+  </Section>
+)}
           {/* Citations */}
           {result.citations?.length > 0 && (
             <Section label="📚 Legal Citations" bg="#f0f4ff">
@@ -144,6 +196,31 @@ export default function QAPage() {
             </Section>
           )}
 
+{/* Confidence Level */}
+{result.confidence && (
+  <Section label="📊 Confidence Level">
+    <span style={{
+      padding: '4px 10px',
+      borderRadius: 6,
+      fontSize: 13,
+      fontWeight: 600,
+      background:
+        result.confidence === "High"
+          ? "#e6f7ee"
+          : result.confidence === "Medium"
+          ? "#fff4e5"
+          : "#fdecea",
+      color:
+        result.confidence === "High"
+          ? "#1e7e34"
+          : result.confidence === "Medium"
+          ? "#b26a00"
+          : "#c62828"
+    }}>
+      {result.confidence}
+    </span>
+  </Section>
+)}
           {/* Disclaimer */}
           <Section label="⚠️ Disclaimer" bg="#fffbf0">
             <p style={{ fontSize:13, color:'var(--risky)', fontStyle:'italic' }}>{result.disclaimer}</p>
