@@ -88,7 +88,7 @@ cd frontend && npm install && npm run dev
 
 ## 🛠️ Tech Stack
 
-**Backend:** FastAPI · SQLAlchemy (async) · PostgreSQL · Anthropic Claude API · JWT Auth  
+**Backend:** FastAPI · SQLAlchemy (async) · PostgreSQL · GEMINI  API · JWT Auth  
 **Frontend:** React 18 · Vite · React Router · Axios · Recharts · Zustand  
 **AI:** Claude claude-opus-4-6 · Structured JSON outputs · Multi-turn conversations
 
